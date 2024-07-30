@@ -1,9 +1,5 @@
 package tasks;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
 public class ArrayOfDigits {
     /**
      *Реалізуй метод toArrayOfDigits(), який приймає число n і
@@ -17,20 +13,12 @@ public class ArrayOfDigits {
      * */
 
     public static int[] toArrayOfDigits(int n) {
-        if (n < 0) {
-            n = Math.abs(n);
-        }
+        n = Math.abs(n);
         String number = String.valueOf(n);
-        List<Integer> digits = new ArrayList<>();
-        for (char element : number.toCharArray()) {
-            digits.add(Character.getNumericValue(element));
+        int[] digits = new int[number.length()];
+        for (int i = 0; i < number.length(); i++) {
+            digits[i] = Character.getNumericValue(number.charAt(number.length() - 1 - i));
         }
-        Collections.reverse(digits);
-        int[] digitsArray = new int[digits.size()];
-        for (int i = 0; i < digits.size(); i++) {
-            digitsArray[i] = digits.get(i);
-        }
-        return digitsArray;
+        return digits;
     }
-
 }

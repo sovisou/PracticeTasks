@@ -14,12 +14,6 @@ public class CountOccurrences {
      */
 
     public static int countOccurrences(String str, String substr) {
-        int substrIndex = 0;
-        int counter = 0;
-        while ((substrIndex = str.indexOf(substr, substrIndex)) != -1) {
-            counter++;
-            substrIndex += substr.length();
-        }
-        return counter;
+       return (str.length() - str.replaceAll(substr, "").length()) / substr.length();
     }
 }
