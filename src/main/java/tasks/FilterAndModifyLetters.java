@@ -16,8 +16,7 @@ public class FilterAndModifyLetters {
     public static String filterLetters(String input) {
         return IntStream.range(0, input.length())
                 .filter(index -> index % 2 == 0)
-                .mapToObj(i -> String.valueOf(input.charAt(i)))
-                .collect(Collectors.joining())
-                .toUpperCase();
+                .mapToObj(i -> String.valueOf(input.charAt(i)).toUpperCase())
+                .collect(Collectors.joining());
     }
 }
