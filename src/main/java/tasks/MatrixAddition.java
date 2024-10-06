@@ -9,11 +9,17 @@ public class MatrixAddition {
      */
 
     public static int[][] addMatrix(int[][] first, int[][] second) {
-        int raws = first.length;
+        if (first.length == 0 || second.length == 0) {
+            return null;
+        }
+        if (first.length != second.length) {
+            return null;
+        }
+        int rows = first.length;
         int columns = first[0].length;
-        int[][] newMatrix = new int [raws][columns];
-        for (int i = 0; i < first.length; i++) {
-            for (int j = 0; j < second.length; j++) {
+        int[][] newMatrix = new int [rows][columns];
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
                 newMatrix[i][j] = first[i][j] + second[i][j];
             }
         }
